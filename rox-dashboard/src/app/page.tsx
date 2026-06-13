@@ -1,14 +1,5 @@
-import dynamic from 'next/dynamic';
 import { Activity, AlertTriangle, Route, ShieldCheck } from 'lucide-react';
-
-const LiveMap = dynamic(() => import('@/components/map/LiveMap'), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full bg-slate-900 flex items-center justify-center animate-pulse">
-      <p className="text-slate-400 text-sm font-medium">Cargando mapa operativo de Guatemala...</p>
-    </div>
-  ),
-});
+import MapWrapper from '@/components/map/MapWrapper';
 
 export default async function DashboardPage() {
 
@@ -77,7 +68,7 @@ export default async function DashboardPage() {
             </div>
           </div>
           <div className="w-full flex-1 relative bg-slate-900">
-            <LiveMap />
+            <MapWrapper />
           </div>
         </div>
 
